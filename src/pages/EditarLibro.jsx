@@ -14,7 +14,6 @@ function EditarLibro() {
     const [ sinopsis, setSinopsis ] = useState();
     const [ localizacion, setLocalizacion ] = useState();
     const [ listaLocalizaciones, setListaLocalizaciones ] = useState(null);
-    const [ opcionSelec, setOpcionSelec ] = useState(null);
     const [ errorMessage, setErrorMessage ] = useState(null);
 
     useEffect(() => {

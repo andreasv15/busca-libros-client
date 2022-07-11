@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { verifyService } from '../services/auth.services';
+import { SpinnerRoundOutlined } from "spinners-react";
 
 function Perfil() {
   
@@ -31,7 +32,7 @@ function Perfil() {
 
   return (
     <div>
-        { user === null && <h3> ... Loading </h3>}
+        { user === null && <SpinnerRoundOutlined /> }
         {
           user !== null && (
             <h1> Perfil de {user.nombre} </h1>

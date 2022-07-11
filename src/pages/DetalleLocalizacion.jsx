@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteLocalizacionService, getDetalleLocalizacionService } from '../services/localizacion.services';
+import { SpinnerRoundOutlined } from "spinners-react";
 
 function DetalleLocalizacion() {
 
@@ -33,9 +34,15 @@ function DetalleLocalizacion() {
 
     const handleDelete = async () => {
         try {
-            await deleteLocalizacionService(id);
-            navigate("/localizaciones");
-            
+            const response = await deleteLocalizacionService(id);
+            //console.log(response);
+            //navigate("/localizaciones");
+            if (response.data.errorMessage === undefined) {
+                navigate("/localizaciones");
+            } else {
+                setErrorMessage(response.data.errorMessage);
+            }
+
         } catch (error) {
             navigate("/error");
         }
@@ -43,15 +50,12 @@ function DetalleLocalizacion() {
 
 
     if (detalleLocalizacion === null) {
-        return <h3> ... Loading </h3>
+        return <SpinnerRoundOutlined />
     }
 
 
   return (
     <div>
-        {
-            errorMessage !== null && <p> {errorMessage} </p>
-        }
 
         <h3> Detalles de la localización </h3>
 
@@ -59,6 +63,10 @@ function DetalleLocalizacion() {
 
         <button onClick={handleDelete}> Borrar </button>
         <br />
+        {
+            errorMessage !== null && <p> {errorMessage} </p>
+        }
+        
         <Link to={`/localizaciones/${id}/edit`}><button> Editar </button></Link>
 
     </div>

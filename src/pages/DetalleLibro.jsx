@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { deleteLibroService, getDetalleLibroService } from '../services/libro.services';
 import { getDetalleLocalizacionService } from '../services/localizacion.services';
+import { SpinnerRoundOutlined } from "spinners-react";
 
 function DetalleLibro() {
 
@@ -46,7 +47,7 @@ function DetalleLibro() {
 
 
     if (detalleLibro === null) {
-        return <h3> ... Loading </h3>
+        return <SpinnerRoundOutlined />
     }
     
   return (

@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.home {
+  background-image: url("/public/images/background.jpg");
+  min-height: 100vh;
+  min-width: 100vw;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.botonesHome {
+  display: flex;
+  justify-content: center;
+}
