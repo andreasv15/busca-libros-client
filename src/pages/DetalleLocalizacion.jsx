@@ -17,7 +17,7 @@ function DetalleLocalizacion() {
 
         try {
             const response = await getDetalleLocalizacionService(id);
-            console.log(response);
+            //console.log(response);
             if (response.data.errorMessage === undefined) {
                 setDetalleLocalizacion(response.data);
             } else {
@@ -59,7 +59,7 @@ function DetalleLocalizacion() {
 
         <button onClick={handleDelete}> Borrar </button>
         <br />
-        {/* <Link to={`/localizaciones/${id}/edit`}><button> Editar </button></Link> */}
+        <Link to={`/localizaciones/${id}/edit`}><button> Editar </button></Link>
 
     </div>
   )

@@ -15,6 +15,7 @@ import AddLocalizacion from './pages/AddLocalizacion';
 import DetalleLibro from './pages/DetalleLibro';
 import EditarLibro from './pages/EditarLibro';
 import DetalleLocalizacion from './pages/DetalleLocalizacion';
+import EditarLocalizacion from './pages/EditarLocalizacion';
 
 function App() {
   return (
@@ -35,8 +36,8 @@ function App() {
 
       <Route path="/localizaciones" element={ <Localizaciones /> } />
       <Route path='/localizaciones/add-localizacion' element={<AddLocalizacion />} />
+      <Route path="/localizaciones/:id/edit" element={<EditarLocalizacion />} />
       <Route path="/localizaciones/:id/details" element={<DetalleLocalizacion />} />
-
       <Route path="/perfil" element={ <Perfil /> } />
 
 

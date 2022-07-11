@@ -15,11 +15,16 @@ const addLocalizacionService = (localizacion) => {
 
 const deleteLocalizacionService = (localizacion) => {
     return service.delete(`/localizaciones/${localizacion}`);
-
 }
+
+const editarLocalizacionService = (localizacion, editada) => {
+    return service.patch(`/localizaciones/${localizacion}`, editada);
+}
+
 export {
     getAllLocalizacionesService,
     getDetalleLocalizacionService,
     deleteLocalizacionService,
+    editarLocalizacionService,
     addLocalizacionService
 }
