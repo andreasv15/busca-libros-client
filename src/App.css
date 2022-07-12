@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -37,11 +38,16 @@
   }
 }
 
+
+/***************************/
+/* * ESTILOS PAGINA HOME  */
+/*************************/
+
 .home {
   background-image: url("/public/images/background.jpg");
   min-height: 100vh;
   min-width: 100vw;
-  
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,8 +56,81 @@
   flex-direction: column;
   justify-content: center;
 }
+div.introduccionHome {
+  max-width: 80vw;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  margin: auto;
+  font-weight: bold;
+}
 
 .botonesHome {
+  width: 20vw;
+  margin: auto;
   display: flex;
-  justify-content: center;
+  align-content: center;
+  justify-content: space-evenly;
 }
+
+.btnHome {
+  padding: 20px;
+}
+
+
+/***************************/
+/* * ESTILOS PAGINA LOGIN */
+/*************************/
+
+.paginaLogin {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  display: flex;
+}
+
+
+.formLogin {
+  margin: auto;
+  padding: 20px;
+  /* max-height: 50vh; */
+  max-width: 80vw;
+  background-color: whitesmoke;
+
+
+}
+
+.formLogin>h1{
+  padding: 20px;
+}
+
+/******************************/
+/* * ESTILOS PAGINA REGISTRO */
+/****************************/
+
+.paginaSignUp {
+  background-image: url("../public/images/signup.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+
+}
+
+.formSignup {
+  min-width: 30vw;
+
+  margin: auto;
+  padding: 20px;
+  /* max-height: 50vh; */
+  background-color: whitesmoke;
+
+}
+
+.formSignup>h1{
+  padding: 20px;
+}
+

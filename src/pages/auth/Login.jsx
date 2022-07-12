@@ -53,25 +53,30 @@ function Login() {
 
 
   return (
-    <div>
-        <h1> Página de login </h1>
+    <div className='paginaLogin'>
 
-        <form onSubmit={handleLogin}>
-            <div>
-                <label htmlFor='username'> Nombre de usuario: </label>
-                <input type="text" className="username" placeholder="Escribe tu nombre de usuario" value={username} onChange={handleUserChange} />
-                <br />
-                <label htmlFor='password'> Contraseña: </label>
-                <input type="password" className='password' placeholder='Escribe tu contraseña' value={password} onChange={handlePassChange} />
+        <form className='formLogin border border-5 rounded-top' onSubmit={handleLogin}>
+            <h1> Login </h1>
+
+            <div className="form-floating mb-3">
+                <input type="text" placeholder="Escribe tu nombre de usuario" className="username form-control" id="floatingInput" value={username} onChange={handleUserChange} />
+                <label htmlFor='username floatingInput'> Usuario </label>
             </div>
 
-            <button type='submit'> Iniciar sesión </button>
+            <div className="form-floating mb-3">
+                <input type="password" className='password form-control' placeholder='Escribe tu contraseña' id="floatingInput" value={password} onChange={handlePassChange} />
+                <label htmlFor='password floatingInput'> Contraseña </label>
+            </div>
+
+            <button type='submit' className='btn btn-success'> Iniciar sesión </button>
             <br />
-            <Link to="/signup"> <button> Crear nueva cuenta </button> </Link>
+            <br />
 
             {
-              errorMessage !== null && <p> {errorMessage} </p>
+              errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
             }
+
+            Si no tienes cuenta, puedes crearla haciendo click <Link to="/signup">aquí</Link>.
 
         </form>
 

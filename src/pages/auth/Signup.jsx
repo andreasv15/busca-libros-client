@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signupService } from '../../services/auth.services';
 
 function Signup() {
@@ -48,26 +48,34 @@ function Signup() {
   }
 
   return (
-    <div>
-        <h1> Página de registro </h1>
+    <div className='paginaSignUp'>
 
-        <form onSubmit={handleSignup}>
-            <div>
-                <label htmlFor='nombre'> Nombre: </label>
-                <input type="text" className="nombre" placeholder="Escribe tu nombre" onChange={handleNombre} />
-                <br />
-                <label htmlFor='username'> Nombre de usuario: </label>
-                <input type="text" className="username" placeholder="Escribe tu nombre de usuario" onChange={handleUsername} />
-                <br />
-                <label htmlFor='password'> Contraseña: </label>
-                <input type="password" className='password' placeholder='Escribe tu contraseña' onChange={handlePassword} />
-            </div>
+        <form className='formSignup border border-5 rounded-top' onSubmit={handleSignup}>
+          <h1> Regístrate </h1>
+          <div className="form-floating mb-3">
+            <input type="text" className="nombre form-control" id="floatingInput" placeholder="Escribe tu nombre" onChange={handleNombre} />
+            <label htmlFor='nombre floatingInput'> Nombre </label>
+          </div>
 
-            <button type='submit'> Registrarse </button>
+          <div className="form-floating mb-3">
+            <input type="text" className="username form-control" id="floatingInput" placeholder="Escribe tu nombre de usuario" onChange={handleUsername} />
+            <label htmlFor='username floatingInput'> Nombre de usuario </label>
+          </div>
 
-            {
-              errorMessage !== null && <p> {errorMessage} </p>
-            }
+          <div className="form-floating mb-3">
+            <input type="password" className='password form-control' id="floatingInput" placeholder='Escribe tu contraseña' onChange={handlePassword} />
+            <label htmlFor='password floatingInput'> Contraseña </label>
+          </div>
+
+          <button type='submit' className='btn btn-success'> Registrarse </button>
+          <br />
+          <br />
+
+          {
+            errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
+          }
+
+          Inicia sesión <Link to="/login">aquí</Link>.
 
         </form>
     
