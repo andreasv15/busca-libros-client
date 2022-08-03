@@ -36,23 +36,32 @@ function Localizaciones() {
   }
 
   return (
-    <div>
-        <h2> Tus localizaciones </h2>
+    <div className='divLocalizaciones'>
+      <br />
+      <h2> Tus localizaciones </h2>
+      <br />
+      <h5> Puede editar la localización deseada pulsando sobre ella. </h5>
+      <br />
+
         { errorMessage !== null && <p> {errorMessage} </p> }
 
         {
           listaLocalizaciones !== null && (
             listaLocalizaciones.map( (eachLocalizacion) => {
               return (
-                <div>
-                  <Link to={`/localizaciones/${eachLocalizacion._id}/details`}><h3> {eachLocalizacion.lugar} </h3> </Link>
+                <div className='cadaLocalizacion'>
+                  <Link to={`/localizaciones/${eachLocalizacion._id}/details`}> <h3> ➤ {eachLocalizacion.lugar} </h3> </Link>
+                  <hr />
                 </div>
+
               )
             })
           )
         }
 
-    
+        <br /><br />
+        <p> Haz click <Link to={"/localizaciones/add-localizacion"}>aquí</Link> si quiere añadir una nueva localización. </p>
+
     </div>
   )
 }

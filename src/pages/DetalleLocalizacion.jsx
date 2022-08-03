@@ -55,19 +55,21 @@ function DetalleLocalizacion() {
 
 
   return (
-    <div>
-
+    <div className='divDetalleLocalizacion'>
         <h3> Detalles de la localización </h3>
 
         <h4> Lugar: {detalleLocalizacion.lugar} </h4>
 
-        <button onClick={handleDelete}> Borrar </button>
+        <button onClick={handleDelete} className="button-19-red"> Borrar </button>
+        
+        <Link to={`/localizaciones/${id}/edit`}><button className='button-19-green'> Editar </button></Link>
+        
         <br />
         {
             errorMessage !== null && <p> {errorMessage} </p>
         }
         
-        <Link to={`/localizaciones/${id}/edit`}><button> Editar </button></Link>
+        <br />
 
     </div>
   )

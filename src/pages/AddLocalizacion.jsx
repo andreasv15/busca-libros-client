@@ -44,18 +44,24 @@ function AddLocalizacion() {
   }
 
   return (
-    <div>
-        <h1> Añadiendo localización </h1>
-    
-    <form onSubmit={handleAddLocalizacion}>
+    <div className='divFormAddLocalizacion'>
+
+      <br />
+      <h2> Añade una localización </h2>
+
+    <form className='formAddLocalizacion' onSubmit={handleAddLocalizacion}>  
+      <h5> Introduce un nombre que sea lo más descriptivo posible. Por ejemplo: Estantería habitación María, Córdoba. </h5>
+      <br />
         <div>
             {/* <label htmlFor='imagen'> Imagen: </label>
             <input type="file" className="imagen" onChange={handleImgChange} />
             <br /> */}
 
-            <label htmlFor='lugar'> Lugar: </label>
-            <input type="text" className="lugar" placeholder="Escribe el nombre del lugar" onChange={handleChangeLugar} value={lugar} />
-            <br />
+
+            <div className="form-floating mb-3">
+              <input type="text" className="lugar form-control" id="floatingInput" placeholder="Escribe el nombre del lugar" onChange={handleChangeLugar} value={lugar} />
+              <label htmlFor='lugar floatingInput'> Lugar </label>
+            </div>
 
             {/* <label htmlFor='habitacion'> Habitación: </label>
             <input type="text" className="habitacion" placeholder="Escribe el nombre de la habitación" onChange={handleChangeHabitacion} value={habitacion} />
@@ -71,11 +77,13 @@ function AddLocalizacion() {
 
         </div>
 
-        <button type='submit'> Añadir </button>
-    </form>
         {
-          errorMessage !== null && <p> {errorMessage} </p>
+          errorMessage !== null && <p className='error'> {errorMessage} </p>
         }
+
+        <button type='submit' className='button-19'> Añadir </button>
+    </form>
+
 
     </div>
   )

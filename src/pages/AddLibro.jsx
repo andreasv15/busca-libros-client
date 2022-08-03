@@ -83,6 +83,7 @@ function AddLibro() {
 
         } catch (error) {
             if (error.response.status === 400) {
+                //console.log("error: ", error);
                 setErrorMessage(error.response.data.errorMessage)
             } else {
                 navigate("/error")
@@ -91,54 +92,60 @@ function AddLibro() {
     }
 
 
-
   return (
-    <div>
-        <h1> Añadiendo libro </h1>
+    <div className='divFormAddLibro'>
     
-        <form onSubmit={handleAddLibro}>
-            <div>
-                <label htmlFor='imagen'> Imagen: </label>
-                <input type="file" className="imagen" onChange={handleImgChange} />
-                <br />
+        <form onSubmit={handleAddLibro} className="formAddLibro">
 
-                {
-                    imagen !== undefined && <img src={imagen} alt="img" width="200px" />
-                }
+            <br />
+            <h2> Añade un libro a tu biblioteca casera </h2>
+            <br />
+
+            <input type="file" className="custom-file-input" id="customFileLang" onChange={handleImgChange} />
+
+            <br />
+
+            {
+                imagen !== undefined && <img src={imagen} alt="img" className='card-img-top imgAddLibro' />
+            }
+            <br />
                 
-                <br />
+            <br />
 
-                <label htmlFor='titulo'> Título: </label>
-                <input type="text" className="titulo" placeholder="Escribe el título del libro" onChange={handleChangeTitulo} value={titulo} />
-                <br />
+            <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el título del libro" onChange={handleChangeTitulo} value={titulo} />
+                <label htmlFor='titulo floatingInput'> Título </label>
+            </div>
 
-                <label htmlFor='autor'> Autor: </label>
-                <input type="text" className="autor" placeholder="Escribe el autor del libro" onChange={handleChangeAutor} value={autor} />
-                <br />
+            <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el autor del libro" onChange={handleChangeAutor} value={autor} />
+                <label htmlFor='autor floatingInput'> Autor </label>
+            </div>
 
-                <label htmlFor='sinopsis'> Sinopsis: </label>
-                <textarea className='sinopsis' placeholder='Escribe la sinopsis del libro' onChange={handleChangeSinopsis} value={sinopsis} ></textarea>
-                <br />
+            <textarea className='form-control' id="floatingInput exampleFormControlTextarea1" placeholder='Escribe la sinopsis del libro' onChange={handleChangeSinopsis} value={sinopsis} rows="5"></textarea>
 
-                <label htmlFor='localizacion'> Localización: </label>
-                {/* <input type="text" className="localizacion" placeholder="Escribe la localización del libro" onChange={handleChangeLocalizacion} value={localizacion} /> */}
-                { errorMessage !== null && <p> No tienes ninguna localización. <Link to="/add-localizacion"> Crear una </Link> </p> }
+            {/* <label htmlFor='localizacion'> Localización </label> */}
+            {/* <input type="text" className="localizacion" placeholder="Escribe la localización del libro" onChange={handleChangeLocalizacion} value={localizacion} /> */}
+            {/* { errorMessage !== null && <p> No tienes ninguna localización. <Link to="/add-localizacion"> Crear una </Link> </p> } */}
+
+            <br />
 
 
-                { listaLocalizaciones !== null && (
-                    <select name='localizacion' onChange={handleChangeLocaliz}>
-                    {
-                        listaLocalizaciones.map( (eachLocalizacion) => {
-                            return (
-                                <option value={eachLocalizacion._id}> {eachLocalizacion.lugar} </option>
-                            )
-                        })
-                    }
-                    </select>
-
-                )
+            { listaLocalizaciones !== null && (
+                <select className='form-control localizacionAddLibro' id='exampleFormControlSelect1' name='localizacion' onChange={handleChangeLocaliz}>
+                {
+                    listaLocalizaciones.map( (eachLocalizacion) => {
+                        return (
+                            <option value={eachLocalizacion._id}> {eachLocalizacion.lugar} </option>
+                        )
+                    })
                 }
-                <br />
+                </select>
+
+            )
+            }
+            <br />
+
 
                 {/* <label htmlFor='categoria'> Selecciona a qué categoría pertenece: </label><br/>
                 <input type="checkbox" className="categoria[]" value="Drama" onChange={handleChangeCategoria} /> Drama <br/>
@@ -147,10 +154,9 @@ function AddLibro() {
                 <input type="checkbox" className="categoria[]" value="Fantasia" onChange={handleChangeCategoria} /> Fantasía <br/>
                 */}
 
+                <p className='error'> { errorMessage } </p>
 
-
-            </div>
-            { errorMessage === null && <button type='submit'> Añadir </button>}
+            <button type='submit' className='button-19'> Añadir </button>
             
         </form>
                 

@@ -1,3 +1,9 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }
@@ -38,6 +44,9 @@
   }
 }
 
+.error {
+  color: red;
+}
 
 /***************************/
 /* * ESTILOS PAGINA HOME  */
@@ -133,4 +142,335 @@ div.introduccionHome {
 .formSignup>h1{
   padding: 20px;
 }
+
+.barraNav {
+  min-width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/******************************/
+/* * ESTILOS PAGINA LIBROS * */
+/****************************/
+
+.listaLibros {
+  flex-direction: column;
+}
+
+.listaLibros {
+  background-image: url("/public/images/location.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cadaLibro {
+  opacity: 0.9;
+  background-color: white;
+  width: 50vw;
+  border: 1px black solid;
+  border-radius: 1em;
+  margin: 1% auto;
+
+
+}
+
+.imgLibro {
+  width: 30vw;
+  height: 30vh;
+  margin: 10px;
+}
+
+.card-title {
+  padding-top: 10px;
+}
+
+/******************************/
+/* * ESTILOS AÑADIR LIBROS * */
+/****************************/
+
+.divFormAddLibro {
+  background-image: url("/public/images/book-add.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.formAddLibro {
+  margin: auto;
+  padding: 20px;
+  /* max-height: 50vh; */
+  max-width: 80vw;
+
+}
+
+.formAddLibro > input, .formAddLibro > div, .formAddLibro > textarea, .formAddLibro > select {
+  opacity: 0.8;
+}
+
+.imgAddLibro {
+  max-width: 30vw;
+}
+
+
+/************************************/
+/* * ESTILOS AÑADIR LOCALIZACION * */
+/**********************************/
+
+.divFormAddLocalizacion {
+  background-image: url("/public/images/wallpaper.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+
+.formAddLocalizacion {
+  margin: 20px auto;
+  padding: 20px;
+  /* max-height: 50vh; */
+  max-width: 80vw;
+  height: 100vh;
+}
+
+.formAddLocalizacion > input, .formAddLocalizacion > div {
+  opacity: 0.7;
+}
+
+
+/************************************/
+/* * ESTILOS LISTA LOCALIZACION * */
+/**********************************/
+.divLocalizaciones {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/white-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+hr {
+  width: 40vw;
+  margin: 20px auto;
+}
+
+.cadaLocalizacion > *, .cadaLocalizacion > *:active, .cadaLocalizacion > *:hover, .cadaLocalizacion > *:visited {
+  
+  color: black;
+  text-decoration: none;
+}
+
+
+/************************************/
+/* * ESTILOS DETALLE LOCALIZACION  */
+/**********************************/
+.divDetalleLocalizacion {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/white-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+/* CSS */
+.button-19-green {
+  appearance: button;
+  background-color: #18d62b;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-19-green:after {
+  background-clip: padding-box;
+  background-color: #18d62b;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19-green:main,
+.button-19-green:focus {
+  user-select: auto;
+}
+
+.button-19-green:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19-green:disabled {
+  cursor: auto;
+}
+
+
+
+
+/********************************/
+.button-19-red {
+  appearance: button;
+  background-color: #d61818;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-19-red:after {
+  background-clip: padding-box;
+  background-color: #d61818;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19-red:main,
+.button-19-red:focus {
+  user-select: auto;
+}
+
+.button-19-red:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19-red:disabled {
+  cursor: auto;
+}
+
+
+/********************************/
+.button-19 {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+
+
+/******************************/
+/* * ESTILOS BARRA BUSQUEDA  */
+/****************************/
+
+.formSearch {
+  margin: auto;
+  padding: 10px;
+  width: 40vw;
+}
+
+
 
