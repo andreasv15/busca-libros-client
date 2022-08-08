@@ -35,7 +35,7 @@ function DetalleLocalizacion() {
     const handleDelete = async () => {
         try {
             const response = await deleteLocalizacionService(id);
-            //console.log(response);
+            // console.log(response);
             //navigate("/localizaciones");
             if (response.data.errorMessage === undefined) {
                 navigate("/localizaciones");
@@ -56,17 +56,19 @@ function DetalleLocalizacion() {
 
   return (
     <div className='divDetalleLocalizacion'>
-        <h3> Detalles de la localización </h3>
+        <br />
 
-        <h4> Lugar: {detalleLocalizacion.lugar} </h4>
+        <h4> {detalleLocalizacion.lugar} </h4>
+        <br />
 
-        <button onClick={handleDelete} className="button-19-red"> Borrar </button>
-        
-        <Link to={`/localizaciones/${id}/edit`}><button className='button-19-green'> Editar </button></Link>
+        <div className='botonesLocalizacion'>
+            <button onClick={handleDelete} className="button-19-red"> Borrar </button>
+            <Link to={`/localizaciones/${id}/edit`}><button className='button-19-green'> Editar </button></Link>
+        </div>
         
         <br />
         {
-            errorMessage !== null && <p> {errorMessage} </p>
+            errorMessage !== null && <p className='error'> {errorMessage} </p>
         }
         
         <br />

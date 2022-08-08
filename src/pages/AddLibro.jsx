@@ -103,7 +103,6 @@ function AddLibro() {
 
             <input type="file" className="custom-file-input" id="customFileLang" onChange={handleImgChange} />
 
-            <br />
 
             {
                 imagen !== undefined && <img src={imagen} alt="img" className='card-img-top imgAddLibro' />

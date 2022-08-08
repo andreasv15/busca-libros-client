@@ -49,21 +49,24 @@ function EditarLocalizacion() {
 
 
   return (
-    <div>
-        <h1> Editando detalles de la localización </h1>
-        <form onSubmit={handleEditLocaliz}>
-            <div>
+    <div className='divEditarLocalizacion'>
 
-                <label htmlFor='lugar'> Lugar: </label>
-                <input type="text" className="lugar" placeholder="Escribe el lugar" onChange={handleChangeLugar} value={lugar} />
-                <br />
+        <form onSubmit={handleEditLocaliz} className='formEditarLocalizacion'>
+    
+            <h2> Cambiando nombre de localización </h2>
+            <br />
 
+            <div className="form-floating mb-3">
+                <input type="text" className="lugar form-control" placeholder="Escribe el lugar" onChange={handleChangeLugar} value={lugar} />
             </div>
+
             { errorMessage !== null && <p> {errorMessage} </p>}
             
-            <button type='submit'> Guardar </button>
+            <div className='botonesLocalizacion'>
+                <button type='submit' className='button-19-green'> Guardar </button>
 
-            <Link to={`/libros/${id}/details`}><button> Cancelar </button> </Link>
+                <Link to={`/localizaciones/${id}/details`}><button className="button-19-red"> Cancelar </button> </Link>
+            </div>
         </form>
 
     </div>

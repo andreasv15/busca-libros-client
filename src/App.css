@@ -2,6 +2,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
+  padding: 0 auto;
 }
 
 .App {
@@ -65,6 +66,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
 }
+
 div.introduccionHome {
   max-width: 80vw;
   background-color: rgba(255, 255, 255, 0.4);
@@ -154,15 +156,38 @@ div.introduccionHome {
 /* * ESTILOS PAGINA LIBROS * */
 /****************************/
 
+
 .listaLibros {
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url("/public/images/location.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+}
+
+/* .listaLibros {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
   flex-direction: column;
 }
 
-.listaLibros {
-  background-image: url("/public/images/location.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+.listaLibros::before {    
+    background-image: url("/public/images/location.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.6;
 }
+*/
 
 .cadaLibro {
   opacity: 0.9;
@@ -171,28 +196,53 @@ div.introduccionHome {
   border: 1px black solid;
   border-radius: 1em;
   margin: 1% auto;
-
-
 }
 
 .imgLibro {
-  width: 30vw;
-  height: 30vh;
-  margin: 10px;
+  width: 40vw;
+  height: 40vh;
+  margin: 50px 10px 20px 16px;
+  padding: 20px 0px 0px 10px;
+}
+
+.card-text {
+  margin: 0px 10px 0px 0px;
+  padding: 10px;
+  text-align: justify;
 }
 
 .card-title {
-  padding-top: 10px;
+  padding: 20px 10px 10px 10px;
 }
+
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .cadaLibro {
+    width: 80vw;
+    flex-direction: column;
+    align-items: center;
+  }
+  .imgLibro {
+    min-width: 25vw;
+  }
+
+}
+
+
 
 /******************************/
 /* * ESTILOS AÑADIR LIBROS * */
 /****************************/
 
 .divFormAddLibro {
+  width: 100vw;
+  height: 100vh;
   background-image: url("/public/images/book-add.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+
 
 }
 
@@ -209,7 +259,8 @@ div.introduccionHome {
 }
 
 .imgAddLibro {
-  max-width: 30vw;
+  width: 10vw;
+  height: 30vh;
 }
 
 
@@ -221,6 +272,7 @@ div.introduccionHome {
   background-image: url("/public/images/wallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
 }
 
@@ -247,6 +299,8 @@ div.introduccionHome {
   background-image: url("/public/images/white-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }
 
 hr {
@@ -255,7 +309,6 @@ hr {
 }
 
 .cadaLocalizacion > *, .cadaLocalizacion > *:active, .cadaLocalizacion > *:hover, .cadaLocalizacion > *:visited {
-  
   color: black;
   text-decoration: none;
 }
@@ -270,11 +323,44 @@ hr {
   background-image: url("/public/images/white-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.botonesLocalizacion {
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  
+}
+
+/************************************/
+/* * ESTILOS EDITAR LOCALIZACION * */
+/**********************************/
+.divEditarLocalizacion {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/brujula.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }
 
 
+.formEditarLocalizacion {
+  margin: 20px auto;
+  padding: 20px;
+  /* max-height: 50vh; */
+  max-width: 80vw;
+  height: 100vh;
+}
 
-
+.formEditarLocalizacion > .form-floating > input {
+  opacity: 0.8;
+}
 
 
 /* CSS */
@@ -336,8 +422,6 @@ hr {
 .button-19-green:disabled {
   cursor: auto;
 }
-
-
 
 
 /********************************/
@@ -467,6 +551,7 @@ hr {
 /****************************/
 
 .formSearch {
+  opacity: 0.9;
   margin: auto;
   padding: 10px;
   width: 40vw;

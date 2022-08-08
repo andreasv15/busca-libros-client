@@ -86,8 +86,8 @@ function Libros() {
 
                   <div className='infoLibro'>
                     <h3 className='card-title'> {eachLibro.titulo} </h3> 
-                    <p className='card-subtitle mb-2 text-muted'> Autor: {eachLibro.autor} </p>
-                    <p class="card-text"> Sinopsis: {eachLibro.sinopsis} </p>
+                    <p className='card-subtitle mb-2 text-muted'> {eachLibro.autor} </p>
+                    <p class="card-text"> {eachLibro.sinopsis} </p>
                     <Link to={`/libros/${eachLibro._id}/details`}> <p> Ver más </p> </Link> 
                   </div>
 
