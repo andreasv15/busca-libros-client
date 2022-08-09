@@ -1,3 +1,4 @@
+import { Alert, AlertTitle, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { addLibroService, uploadImgService } from '../services/libro.services';
@@ -98,7 +99,6 @@ function AddLibro() {
         <form onSubmit={handleAddLibro} className="formAddLibro">
 
             <br />
-            <h2> Añade un libro a tu biblioteca casera </h2>
             <br />
 
             <input type="file" className="custom-file-input" id="customFileLang" onChange={handleImgChange} />
@@ -128,7 +128,8 @@ function AddLibro() {
             {/* { errorMessage !== null && <p> No tienes ninguna localización. <Link to="/add-localizacion"> Crear una </Link> </p> } */}
 
             <br />
-
+            
+            { listaLocalizaciones === null && <p className="alert alert-danger" role="alert"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </p>}
 
             { listaLocalizaciones !== null && (
                 <select className='form-control localizacionAddLibro' id='exampleFormControlSelect1' name='localizacion' onChange={handleChangeLocaliz}>
@@ -153,9 +154,10 @@ function AddLibro() {
                 <input type="checkbox" className="categoria[]" value="Fantasia" onChange={handleChangeCategoria} /> Fantasía <br/>
                 */}
 
-                <p className='error'> { errorMessage } </p>
+                { errorMessage !== null && <p className="alert alert-danger" role="alert"> { errorMessage } </p> }
+                <br />
 
-            <button type='submit' className='button-19'> Añadir </button>
+            <Button type='submit' variant="contained"> Añadir </Button>
             
         </form>
                 

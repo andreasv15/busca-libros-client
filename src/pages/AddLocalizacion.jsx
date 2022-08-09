@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addLocalizacionService } from '../services/localizacion.services';
@@ -47,7 +48,6 @@ function AddLocalizacion() {
     <div className='divFormAddLocalizacion'>
 
       <br />
-      <h2> Añade una localización </h2>
 
     <form className='formAddLocalizacion' onSubmit={handleAddLocalizacion}>  
       <h5> Introduce un nombre que sea lo más descriptivo posible. Por ejemplo: Estantería habitación María, Córdoba. </h5>
@@ -78,10 +78,10 @@ function AddLocalizacion() {
         </div>
 
         {
-          errorMessage !== null && <p className='error'> {errorMessage} </p>
+          errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
         }
 
-        <button type='submit' className='button-19'> Añadir </button>
+        <Button variant="contained" type='submit'> Añadir </Button>
     </form>
 
 

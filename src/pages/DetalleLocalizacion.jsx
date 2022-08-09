@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteLocalizacionService, getDetalleLocalizacionService } from '../services/localizacion.services';
 import { SpinnerRoundOutlined } from "spinners-react";
+import { Button } from '@mui/material';
 
 function DetalleLocalizacion() {
 
@@ -62,13 +63,13 @@ function DetalleLocalizacion() {
         <br />
 
         <div className='botonesLocalizacion'>
-            <button onClick={handleDelete} className="button-19-red"> Borrar </button>
-            <Link to={`/localizaciones/${id}/edit`}><button className='button-19-green'> Editar </button></Link>
+            <Button variant="contained" onClick={handleDelete} > Borrar </Button>
+            <Link to={`/localizaciones/${id}/edit`}><Button variant="contained"> Editar </Button></Link>
         </div>
         
         <br />
         {
-            errorMessage !== null && <p className='error'> {errorMessage} </p>
+            errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
         }
         
         <br />

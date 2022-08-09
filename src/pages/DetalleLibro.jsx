@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { deleteLibroService, getDetalleLibroService } from '../services/libro.services';
 import { getDetalleLocalizacionService } from '../services/localizacion.services';
 import { SpinnerRoundOutlined } from "spinners-react";
+import Button from '@mui/material/Button';
+
 
 function DetalleLibro() {
 
@@ -51,23 +53,26 @@ function DetalleLibro() {
     }
     
   return (
-    <div>
+    <div className='divDetallesLibro'>
 
         {
             errorMessage !== null && <p> {errorMessage} </p>
         }
+        <div className='infoLibro'>
+        
+            <img src={detalleLibro.imagen} alt="img" width="300px" />
 
-        <h3> Detalles del libro </h3>
+            <h4 className='card-title'> {detalleLibro.titulo} </h4>
+            <p className='card-subtitle mb-2 text-muted'> Autor: {detalleLibro.autor}</p>
+            <p className='card-text'> {detalleLibro.sinopsis}</p>
+            <p> <strong> ¿Dónde está? </strong> {nomLugar} </p>
 
-        <img src={detalleLibro.imagen} alt="img" width="300px" />
-        <h4> Título: {detalleLibro.titulo} </h4>
-        <p> Autor: {detalleLibro.autor}</p>
-        <p> Sinopsis: {detalleLibro.sinopsis}</p>
-        <p> Localización: {nomLugar}</p>
+            <div className='botonesLocalizacion'>
+                <Button variant="contained" onClick={handleDelete}>Borrar</Button>
+                <Link to={`/libros/${id}/edit`}><Button variant="contained"> Editar </Button></Link>
+            </div>
+        </div>
 
-        <button onClick={handleDelete}> Borrar </button>
-        <br />
-        <Link to={`/libros/${id}/edit`}><button> Editar </button></Link>
 
     </div>
   )

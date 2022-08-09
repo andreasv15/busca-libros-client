@@ -73,7 +73,7 @@ function Libros() {
 
       <SearchBar searchListProp={searchList} /> 
 
-        { errorMessage !== null && <p> {errorMessage} </p> }
+        { errorMessage !== null && <p className="alert alertListaLibros alert-danger" role="alert"> {errorMessage} Agrega <Link to={`/libros/add-libro/`}>uno</Link>. </p> }
 
 
 

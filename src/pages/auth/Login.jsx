@@ -38,7 +38,7 @@ function Login() {
       localStorage.setItem("authToken", response.data.authToken);
       authenticateUser(); // aqui esta la info del usuario (nombre, username, id)
 
-      navigate("/perfil");
+      navigate("/libros");
 
     } catch (error) {
       if (error.response.status === 400 || error.response.status === 401 ) {

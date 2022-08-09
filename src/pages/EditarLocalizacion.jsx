@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -60,12 +61,12 @@ function EditarLocalizacion() {
                 <input type="text" className="lugar form-control" placeholder="Escribe el lugar" onChange={handleChangeLugar} value={lugar} />
             </div>
 
-            { errorMessage !== null && <p> {errorMessage} </p>}
+            { errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>}
             
             <div className='botonesLocalizacion'>
-                <button type='submit' className='button-19-green'> Guardar </button>
+                <Button variant='contained' type='submit' > Guardar </Button>
 
-                <Link to={`/localizaciones/${id}/details`}><button className="button-19-red"> Cancelar </button> </Link>
+                <Link to={`/localizaciones/${id}/details`}><Button variant='contained'> Cancelar </Button> </Link>
             </div>
         </form>
 

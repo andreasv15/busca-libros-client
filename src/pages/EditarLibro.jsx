@@ -1,3 +1,4 @@
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { editDetallesLibroService, getDetalleLibroService, uploadImgService } from '../services/libro.services';
@@ -98,53 +99,56 @@ function EditarLibro() {
 
 
   return (
-    <div>
-        <h1> Editando detalles del libro </h1>
-        <form onSubmit={handleEditLibro}>
-            <div>
-                <label htmlFor='imagen'> Imagen: </label>
-                <input type="file" className="imagen" onChange={handleImgChange} />
-                <br />
+    <div className='divEditarLibro'>
+        <form onSubmit={handleEditLibro} className="formEditLibro">
+            <br />
 
-                {
-                    imagen !== undefined && <img src={imagen} alt="img" width="200px" />
-                }
-                
-                <br />
+            <input type="file" lassName="custom-file-input" id="customFileLang"  onChange={handleImgChange} />
+            <br />
+            <br />
 
-                <label htmlFor='titulo'> Título: </label>
-                <input type="text" className="titulo" placeholder="Escribe el título del libro" onChange={handleChangeTitulo} value={titulo} />
-                <br />
+            {
+                imagen !== undefined && <img src={imagen} alt="img" className='card-img-top imgAddLibro' />
+            }
 
-                <label htmlFor='autor'> Autor: </label>
-                <input type="text" className="autor" placeholder="Escribe el autor del libro" onChange={handleChangeAutor} value={autor} />
-                <br />
+            <br />
+            <br />
 
-                <label htmlFor='sinopsis'> Sinopsis: </label>
-                <textarea className='sinopsis' placeholder='Escribe la sinopsis del libro' onChange={handleChangeSinopsis} value={sinopsis} ></textarea>
-                <br />
-
-                <label htmlFor='localizacion'> Localización: </label>
-                { listaLocalizaciones != null && (
-                    <select name='localizacion' value={localizacion} onChange={handleChangeLocaliz}>
-                    {
-                        listaLocalizaciones.map( (eachLocalizacion) => {
-                            return (
-                                <option value={eachLocalizacion._id}> {eachLocalizacion.lugar} </option>
-                            )
-                        })
-                    }
-                    </select>
-                )
-                }
-                <br />
-
+            <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el título del libro" onChange={handleChangeTitulo} value={titulo} />
+                <label htmlFor='titulo floatingInput'> Título </label>
             </div>
-            { errorMessage !== null && <p> {errorMessage} </p>}
-            
-            <button type='submit'> Guardar </button>
 
-            <Link to={`/libros/${id}/details`}><button> Cancelar </button> </Link>
+            <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el autor del libro" onChange={handleChangeAutor} value={autor} />
+                <label htmlFor='autor floatingInput'> Autor </label>
+            </div>
+
+            <textarea className='form-control' id="floatingInput exampleFormControlTextarea1" placeholder='Escribe la sinopsis del libro' onChange={handleChangeSinopsis} value={sinopsis} rows="5"></textarea>
+
+            <br />
+
+            { listaLocalizaciones != null && (
+                <select className='form-control' id='exampleFormControlSelect1' name='localizacion' value={localizacion} onChange={handleChangeLocaliz}>
+                {
+                    listaLocalizaciones.map( (eachLocalizacion) => {
+                        return (
+                            <option value={eachLocalizacion._id}> {eachLocalizacion.lugar} </option>
+                        )
+                    })
+                }
+                </select>
+            )
+            }
+            <br />
+
+            { errorMessage !== null && <p> {errorMessage} </p>}
+
+            <div className='botonesLocalizacion'>
+                <Button type='submit' variant="contained"> Guardar </Button>
+
+                <Link to={`/libros/${id}/details`}><Button variant="contained"> Cancelar </Button> </Link>
+            </div>
         </form>
 
     </div>
