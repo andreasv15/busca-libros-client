@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar';
 import { getAllLibrosService } from '../services/libro.services';
 import Alert from '@mui/material/Alert';
 
+
 function Libros() {
     const navigate = useNavigate();
     const [ listaLibros, setListaLibros ] = useState([]); //* todos los libros
@@ -31,7 +32,7 @@ function Libros() {
         }
         
       } catch (error) {
-          navigate("/error")
+        navigate("/error")
       }
   
     }
@@ -47,7 +48,6 @@ function Libros() {
       setFilteredLibros(filteredArr);
 
     }
-
 
   return (
     <div className='listaLibros d-flex'>
@@ -65,14 +65,14 @@ function Libros() {
           filteredLibros !== null && (
             filteredLibros.map( (eachLibro) => {
               return (
-                <div className='cadaLibro d-flex'>
+                <div key={eachLibro._id} className='cadaLibro d-flex'>
                   
                   <img src={eachLibro.imagen} alt="img" className='card-img-top imgLibro' />
 
                   <div className='infoLibro'>
                     <h3 className='card-title'> {eachLibro.titulo} </h3> 
                     <p className='card-subtitle mb-2 text-muted'> {eachLibro.autor} </p>
-                    <p class="card-text"> {eachLibro.sinopsis} </p>
+                    <p className="card-text"> {eachLibro.sinopsis} </p>
                     <Link to={`/libros/${eachLibro._id}/details`}> <p> Ver más </p> </Link> 
                   </div>
 

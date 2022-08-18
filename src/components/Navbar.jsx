@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { IoLibrarySharp } from "react-icons/io5";
 import { MdAddLocationAlt } from "react-icons/md"; 
@@ -35,25 +35,25 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 barraNav">
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <Link className="nav-link" aria-current="page" to="/libros"> <IoLibrarySharp size={30} /> </Link>
+                  <NavLink className="nav-link" aria-current="page" to="/libros"> <IoLibrarySharp size={30} /> </NavLink>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <Link className="nav-link" to="/libros/add-libro"><FaBookMedical size={30} /></Link>
+                  <NavLink className="nav-link" to="/libros/add-libro"><FaBookMedical size={30} /></NavLink>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <Link className="nav-link" to="/localizaciones"><ImLocation size={30} /></Link>
+                  <NavLink className="nav-link" to="/localizaciones"><ImLocation size={30} /></NavLink>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <Link className="nav-link" to="/localizaciones/add-localizacion"><MdAddLocationAlt size={30} /></Link>
+                  <NavLink className="nav-link" to="/localizaciones/add-localizacion"><MdAddLocationAlt size={30} /></NavLink>
                 </li>
 
                 <li className="nav-item dropdown" >
-                  <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <FaUserCog size={30} /> 
-                  </Link>
+                  </NavLink>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" >
                     <li>
-                      <Link className="dropdown-item" to="/perfil">Mi perfil</Link>
+                      <NavLink className="dropdown-item" to="/perfil">Mi perfil</NavLink>
                     </li>
                     {/* <li><hr className="dropdown-divider" /></li> */}
                     <li>

@@ -61,13 +61,13 @@ function Login() {
             <h1> Login </h1>
 
             <div className="form-floating mb-3">
-                <input type="text" placeholder="Escribe tu nombre de usuario" className="username form-control" id="floatingInput" value={username} onChange={handleUserChange} />
-                <label htmlFor='username floatingInput'> Usuario </label>
+                <input type="text" placeholder="Escribe tu nombre de usuario" className="username form-control" id="floatingInput1" value={username} onChange={handleUserChange} />
+                <label htmlFor='username floatingInput1'> Usuario </label>
             </div>
 
             <div className="form-floating mb-3">
-                <input type="password" className='password form-control' placeholder='Escribe tu contraseña' id="floatingInput" value={password} onChange={handlePassChange} />
-                <label htmlFor='password floatingInput'> Contraseña </label>
+                <input type="password" className='password form-control' placeholder='Escribe tu contraseña' id="floatingInput2" value={password} onChange={handlePassChange} />
+                <label htmlFor='password floatingInput2'> Contraseña </label>
             </div>
             <Button type='submit' variant="contained" color="success" className='btn btn-success'> Iniciar sesión </Button>
             <br />

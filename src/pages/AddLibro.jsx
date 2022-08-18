@@ -19,7 +19,7 @@ function AddLibro() {
     const [ titulo, setTitulo ] = useState("");
     const [ autor, setAutor ] = useState("");
     const [ sinopsis, setSinopsis ] = useState("");
-    const [ localizacion, setLocalizacion ] = useState("holita");
+    const [ localizacion, setLocalizacion ] = useState("");
     const [ listaLocalizaciones, setListaLocalizaciones ] = useState(null);
     const [leido, setLeido] = useState(false);
     const [esFavorito, setFavorito] = useState(false);

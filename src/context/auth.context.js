@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { verifyService } from "../services/auth.services";
+import { SpinnerRoundOutlined } from "spinners-react";
+
 
 const AuthContext = createContext();
 
@@ -42,7 +44,8 @@ function AuthWrapper(props) {
 
     //? espera mientras verificamos al usuario, antes de renderizar la app
     if (isLoading === true) {
-        return <div className="App"> <h3>Verificando usuario</h3> </div>
+        //return <div className="App"> <h3>Verificando usuario</h3> </div>
+        return <div className="App"> <SpinnerRoundOutlined /> </div>
     }
 
     //? TODA nuestra APP

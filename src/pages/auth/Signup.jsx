@@ -56,18 +56,18 @@ function Signup() {
         <form className='formSignup border border-5 rounded-top' onSubmit={handleSignup}>
           <h1> Regístrate </h1>
           <div className="form-floating mb-3">
-            <input type="text" className="nombre form-control" id="floatingInput" placeholder="Escribe tu nombre" onChange={handleNombre} />
-            <label htmlFor='nombre floatingInput'> Nombre </label>
+            <input type="text" className="nombre form-control" id="floatingInput1" placeholder="Escribe tu nombre" onChange={handleNombre} />
+            <label htmlFor='nombre floatingInput1'> Nombre </label>
           </div>
 
           <div className="form-floating mb-3">
-            <input type="text" className="username form-control" id="floatingInput" placeholder="Escribe tu nombre de usuario" onChange={handleUsername} />
-            <label htmlFor='username floatingInput'> Nombre de usuario </label>
+            <input type="text" className="username form-control" id="floatingInput2" placeholder="Escribe tu nombre de usuario" onChange={handleUsername} />
+            <label htmlFor='username floatingInput2'> Nombre de usuario </label>
           </div>
 
           <div className="form-floating mb-3">
-            <input type="password" className='password form-control' id="floatingInput" placeholder='Escribe tu contraseña' onChange={handlePassword} />
-            <label htmlFor='password floatingInput'> Contraseña </label>
+            <input type="password" className='password form-control' id="floatingInput3" placeholder='Escribe tu contraseña' onChange={handlePassword} />
+            <label htmlFor='password floatingInput3'> Contraseña </label>
           </div>
           <Button type='submit' variant="contained" color="success" className='btn btn-success'> Registrarse </Button>
           <br />

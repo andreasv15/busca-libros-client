@@ -17,6 +17,7 @@ import EditarLibro from './pages/EditarLibro';
 import DetalleLocalizacion from './pages/DetalleLocalizacion';
 import EditarLocalizacion from './pages/EditarLocalizacion';
 import Footer from './components/Footer';
+import IsPrivate from './components/IsPrivate';
 
 function App() {
   return (
@@ -29,17 +30,17 @@ function App() {
       <Route path='/login' element={ <Login />} />
       <Route path='/signup' element={ <Signup />} />
 
-      <Route path="/libros" element={ <Libros /> } />
-      <Route path='/libros/add-libro' element={<AddLibro />} />
-      <Route path="/libros/:id/edit" element={<EditarLibro />} />
-      <Route path="/libros/:id/details" element={<DetalleLibro />} />
+      <Route path="/libros" element={ <IsPrivate> <Libros /> </IsPrivate> } />
+      <Route path='/libros/add-libro' element={<IsPrivate><AddLibro /></IsPrivate>} />
+      <Route path="/libros/:id/edit" element={<IsPrivate><EditarLibro /></IsPrivate>} />
+      <Route path="/libros/:id/details" element={<IsPrivate> <DetalleLibro /> </IsPrivate>} />
 
 
-      <Route path="/localizaciones" element={ <Localizaciones /> } />
-      <Route path='/localizaciones/add-localizacion' element={<AddLocalizacion />} />
-      <Route path="/localizaciones/:id/edit" element={<EditarLocalizacion />} />
-      <Route path="/localizaciones/:id/details" element={<DetalleLocalizacion />} />
-      <Route path="/perfil" element={ <Perfil /> } />
+      <Route path="/localizaciones" element={ <IsPrivate><Localizaciones /></IsPrivate> } />
+      <Route path='/localizaciones/add-localizacion' element={<IsPrivate><AddLocalizacion /></IsPrivate>} />
+      <Route path="/localizaciones/:id/edit" element={<IsPrivate><EditarLocalizacion /></IsPrivate>} />
+      <Route path="/localizaciones/:id/details" element={<IsPrivate><DetalleLocalizacion /></IsPrivate>} />
+      <Route path="/perfil" element={<IsPrivate> <Perfil /> </IsPrivate> } />
 
 
       <Route path="/error" element={ <Error /> } />
