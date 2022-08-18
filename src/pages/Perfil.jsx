@@ -102,6 +102,7 @@ function Perfil() {
 
       //const response = await verifyService();
       const response = await perfilService();
+      console.log("perfil ", response);
       //console.log(response)
       // console.log(response);
       // console.log("verify service: ", response);
