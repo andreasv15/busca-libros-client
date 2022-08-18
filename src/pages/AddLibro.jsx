@@ -1,8 +1,16 @@
-import { Alert, AlertTitle, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { addLibroService, uploadImgService } from '../services/libro.services';
 import { getAllLocalizacionesService } from '../services/localizacion.services';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Alert from '@mui/material/Alert';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+
 
 function AddLibro() {
     const navigate = useNavigate();
@@ -11,8 +19,10 @@ function AddLibro() {
     const [ titulo, setTitulo ] = useState("");
     const [ autor, setAutor ] = useState("");
     const [ sinopsis, setSinopsis ] = useState("");
-    const [ localizacion, setLocalizacion ] = useState("");
+    const [ localizacion, setLocalizacion ] = useState("holita");
     const [ listaLocalizaciones, setListaLocalizaciones ] = useState(null);
+    const [leido, setLeido] = useState(false);
+    const [esFavorito, setFavorito] = useState(false);
     // const [ categoria, setCategoria ] = useState([]);
     const [ errorMessage, setErrorMessage ] = useState(null);
 
@@ -42,14 +52,8 @@ function AddLibro() {
     const handleChangeAutor = (e) => setAutor(e.target.value);
     const handleChangeSinopsis = (e) => setSinopsis(e.target.value);
     const handleChangeLocaliz = (e) => setLocalizacion(e.target.value);
-
-    // const handleChangeCategoria = (e) => {
-    //     console.log(e)
-    //     // const cat = e.target.value;
-    //     // if ()
-
-    //     // setCategoria();
-    // };
+    const handleLeidoChange = (e) => setLeido(e.target.checked); // para los checkbox no usamos .value, sino .checked
+    const handleFavoritoChange = (e) => setFavorito(e.target.checked); // para los checkbox no usamos .value, sino .checked
 
     const handleImgChange = async (e) => {
         
@@ -75,7 +79,9 @@ function AddLibro() {
             titulo,
             autor,
             sinopsis,
-            localizacion
+            localizacion,
+            leido,
+            esFavorito
         }
 
         try {
@@ -95,14 +101,24 @@ function AddLibro() {
 
   return (
     <div className='divFormAddLibro'>
-    
+
+
         <form onSubmit={handleAddLibro} className="formAddLibro">
-
             <br />
             <br />
+            <Button
+            variant="contained"
+            component="label"
+            >
+            Imagen del libro
+            <input
+                type="file"
+                hidden
+                onChange={handleImgChange}
+            />
+            </Button>
 
-            <input type="file" className="custom-file-input" id="customFileLang" onChange={handleImgChange} />
-
+            <span> </span>
 
             {
                 imagen !== undefined && <img src={imagen} alt="img" className='card-img-top imgAddLibro' />
@@ -111,51 +127,63 @@ function AddLibro() {
                 
             <br />
 
-            <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el título del libro" onChange={handleChangeTitulo} value={titulo} />
-                <label htmlFor='titulo floatingInput'> Título </label>
-            </div>
-
-            <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="floatingInput" placeholder="Escribe el autor del libro" onChange={handleChangeAutor} value={autor} />
-                <label htmlFor='autor floatingInput'> Autor </label>
-            </div>
-
-            <textarea className='form-control' id="floatingInput exampleFormControlTextarea1" placeholder='Escribe la sinopsis del libro' onChange={handleChangeSinopsis} value={sinopsis} rows="5"></textarea>
-
-            {/* <label htmlFor='localizacion'> Localización </label> */}
-            {/* <input type="text" className="localizacion" placeholder="Escribe la localización del libro" onChange={handleChangeLocalizacion} value={localizacion} /> */}
-            {/* { errorMessage !== null && <p> No tienes ninguna localización. <Link to="/add-localizacion"> Crear una </Link> </p> } */}
-
+            <TextField onChange={handleChangeTitulo} value={titulo} className='textfield' id="standard-basic" label="Título" variant="standard" />
             <br />
+            <br />
+            <TextField onChange={handleChangeAutor} value={autor} className='textfield' id="standard-basic" label="Autor" variant="standard" />
+            <br />
+            <br />
+            <TextField
+                id="standard-multiline-static"
+                className='textfield'
+                label="Sinopsis"
+                multiline
+                rows={5}
+                variant="standard"
+                onChange={handleChangeSinopsis} 
+                value={sinopsis}
+                />
+            <br />
+            <br />
+            { listaLocalizaciones === null && <Alert severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>}
             
-            { listaLocalizaciones === null && <p className="alert alert-danger" role="alert"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </p>}
+            <br />
 
-            { listaLocalizaciones !== null && (
-                <select className='form-control localizacionAddLibro' id='exampleFormControlSelect1' name='localizacion' onChange={handleChangeLocaliz}>
-                {
+            <TextField
+                id="standard-select-currency"
+                select
+                label="Localización"
+                value={localizacion}
+                defaultValue={localizacion}
+                onChange={handleChangeLocaliz}
+                helperText="Donde se guarda el libro"
+                variant="standard"
+                className='textfield'
+            >
+            {
+                listaLocalizaciones !== null && (
                     listaLocalizaciones.map( (eachLocalizacion) => {
                         return (
-                            <option value={eachLocalizacion._id}> {eachLocalizacion.lugar} </option>
+                            <MenuItem value={eachLocalizacion._id}>
+                                <span className='d-flex'>{eachLocalizacion.lugar}</span>
+                            </MenuItem>
+
                         )
-                    })
-                }
-                </select>
 
-            )
+                    }
+                )
+                )
             }
+            </TextField>
+
             <br />
+            <br />
+            
+            <FormControlLabel className='checkBoxAdd d-flex' control={<Checkbox defaultChecked />} label="Ya lo he leído" value="leido" onChange={handleLeidoChange} checked={leido} />
+            <FormControlLabel className='checkBoxAdd d-flex' control={<Checkbox defaultChecked icon={<FavoriteBorder /> } checkedIcon={<Favorite />} /> } label="Añadir a mis favoritos" value="favorito" onChange={handleFavoritoChange} checked={esFavorito} />
 
-
-                {/* <label htmlFor='categoria'> Selecciona a qué categoría pertenece: </label><br/>
-                <input type="checkbox" className="categoria[]" value="Drama" onChange={handleChangeCategoria} /> Drama <br/>
-                <input type="checkbox" className="categoria[]" value="Ficcion" onChange={handleChangeCategoria} /> Ciencia Ficción <br/>
-                <input type="checkbox" className="categoria[]" value="Romance" onChange={handleChangeCategoria} /> Romance <br/>
-                <input type="checkbox" className="categoria[]" value="Fantasia" onChange={handleChangeCategoria} /> Fantasía <br/>
-                */}
-
-                { errorMessage !== null && <p className="alert alert-danger" role="alert"> { errorMessage } </p> }
-                <br />
+            { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
+            <br />
 
             <Button type='submit' variant="contained"> Añadir </Button>
             

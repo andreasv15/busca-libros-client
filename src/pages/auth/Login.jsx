@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from '../../context/auth.context'
 import { loginService } from '../../services/auth.services';
+import Alert from '@mui/material/Alert';
+import { Button } from '@mui/material';
 
 
 function Login() {
@@ -67,14 +69,11 @@ function Login() {
                 <input type="password" className='password form-control' placeholder='Escribe tu contraseña' id="floatingInput" value={password} onChange={handlePassChange} />
                 <label htmlFor='password floatingInput'> Contraseña </label>
             </div>
-
-            <button type='submit' className='btn btn-success'> Iniciar sesión </button>
+            <Button type='submit' variant="contained" color="success" className='btn btn-success'> Iniciar sesión </Button>
             <br />
             <br />
 
-            {
-              errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
-            }
+            { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
 
             Si no tienes cuenta, puedes crearla haciendo click <Link to="/signup">aquí</Link>.
 

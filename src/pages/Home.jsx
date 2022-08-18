@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from '@mui/material';
+
 
 function Home() {
   return (
@@ -17,8 +19,9 @@ function Home() {
         </p>
 
         <div className='botonesHome'>
-          <Link to="/login"> <button className="btnsHome btn btn-primary"> Iniciar sesión </button> </Link> <br />
-          <Link to="/signup"> <button className="btnsHome btn btn-primary"> Registrarse </button> </Link>
+
+          <Link to="/login"> <Button variant="contained" className="btnsHome btn btn-primary"> Iniciar sesión </Button> </Link> <br />
+          <Link to="/signup"> <Button variant="contained" className="btnsHome btn btn-primary"> Registrarse </Button> </Link>
         </div>
       </div>
 

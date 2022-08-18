@@ -16,6 +16,7 @@ import DetalleLibro from './pages/DetalleLibro';
 import EditarLibro from './pages/EditarLibro';
 import DetalleLocalizacion from './pages/DetalleLocalizacion';
 import EditarLocalizacion from './pages/EditarLocalizacion';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
       <Route path="*" element={<NotFound />} />
 
     </Routes>
+
+    <Footer />
 
     </div>
   );

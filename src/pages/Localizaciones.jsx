@@ -38,7 +38,6 @@ function Localizaciones() {
   return (
     <div className='divLocalizaciones'>
       <br />
-      <h2> Tus localizaciones </h2>
       <br />
       <h5> Puede editar la localización deseada pulsando sobre ella. </h5>
       <br />

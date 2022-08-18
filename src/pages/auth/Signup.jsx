@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { signupService } from '../../services/auth.services';
+import Alert from '@mui/material/Alert';
+import { Button } from '@mui/material';
+
 
 function Signup() {
 
@@ -66,14 +69,11 @@ function Signup() {
             <input type="password" className='password form-control' id="floatingInput" placeholder='Escribe tu contraseña' onChange={handlePassword} />
             <label htmlFor='password floatingInput'> Contraseña </label>
           </div>
-
-          <button type='submit' className='btn btn-success'> Registrarse </button>
+          <Button type='submit' variant="contained" color="success" className='btn btn-success'> Registrarse </Button>
           <br />
           <br />
 
-          {
-            errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
-          }
+          { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
 
           Inicia sesión <Link to="/login">aquí</Link>.
 

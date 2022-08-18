@@ -3,6 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteLocalizacionService, getDetalleLocalizacionService } from '../services/localizacion.services';
 import { SpinnerRoundOutlined } from "spinners-react";
 import { Button } from '@mui/material';
+import Alert from '@mui/material/Alert';
+
+
 
 function DetalleLocalizacion() {
 
@@ -68,9 +71,8 @@ function DetalleLocalizacion() {
         </div>
         
         <br />
-        {
-            errorMessage !== null && <p className="alert alert-danger" role="alert"> {errorMessage} </p>
-        }
+        
+        { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
         
         <br />
 
