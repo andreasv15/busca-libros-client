@@ -25,6 +25,7 @@ function AddLibro() {
     const [esFavorito, setFavorito] = useState(false);
     // const [ categoria, setCategoria ] = useState([]);
     const [ errorMessage, setErrorMessage ] = useState(null);
+    
 
     useEffect(() => {
         getLocalizaciones();
@@ -34,6 +35,7 @@ function AddLibro() {
 
         try {
             const response = await getAllLocalizacionesService();
+            //console.log(response)
 
             if (response.data.errorMessage === undefined) {
                 //console.log(response.data[0]._id)
@@ -100,9 +102,14 @@ function AddLibro() {
 
 
   return (
-    <div className='divFormAddLibro'>
+    <div className='divFormAddLibro d-flex'>
+        <br />
+        <br />
 
-
+    {
+        listaLocalizaciones === null ?
+            <Alert className='alert alert-danger alertError' severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>
+        :
         <form onSubmit={handleAddLibro} className="formAddLibro">
             <br />
             <br />
@@ -145,7 +152,7 @@ function AddLibro() {
                 />
             <br />
             <br />
-            { listaLocalizaciones === null && <Alert severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>}
+            {/* { listaLocalizaciones === null && <Alert className='alert alert-danger' severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>} */}
             
             <br />
 
@@ -188,6 +195,93 @@ function AddLibro() {
             <Button type='submit' variant="contained"> Añadir </Button>
             
         </form>
+    }
+
+        {/* <form onSubmit={handleAddLibro} className="formAddLibro">
+            <br />
+            <br />
+            <Button
+            variant="contained"
+            component="label"
+            >
+            Imagen del libro
+            <input
+                type="file"
+                hidden
+                onChange={handleImgChange}
+            />
+            </Button>
+
+            <span> </span>
+
+            {
+                imagen !== undefined && <img src={imagen} alt="img" className='card-img-top imgAddLibro' />
+            }
+            <br />
+                
+            <br />
+
+            <TextField onChange={handleChangeTitulo} value={titulo} className='textfield' id="standard-basic" label="Título" variant="standard" />
+            <br />
+            <br />
+            <TextField onChange={handleChangeAutor} value={autor} className='textfield' id="standard-basic" label="Autor" variant="standard" />
+            <br />
+            <br />
+            <TextField
+                id="standard-multiline-static"
+                className='textfield'
+                label="Sinopsis"
+                multiline
+                rows={5}
+                variant="standard"
+                onChange={handleChangeSinopsis} 
+                value={sinopsis}
+                />
+            <br />
+            <br />
+            { listaLocalizaciones === null && <Alert className='alert alert-danger' severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>}
+            
+            <br />
+
+            <TextField
+                id="standard-select-currency"
+                select
+                label="Localización"
+                value={localizacion}
+                defaultValue={localizacion}
+                onChange={handleChangeLocaliz}
+                helperText="Donde se guarda el libro"
+                variant="standard"
+                className='textfield'
+            >
+            {
+                listaLocalizaciones !== null && (
+                    listaLocalizaciones.map( (eachLocalizacion) => {
+                        return (
+                            <MenuItem value={eachLocalizacion._id}>
+                                <span className='d-flex'>{eachLocalizacion.lugar}</span>
+                            </MenuItem>
+
+                        )
+
+                    }
+                )
+                )
+            }
+            </TextField>
+
+            <br />
+            <br />
+            
+            <FormControlLabel className='checkBoxAdd d-flex' control={<Checkbox defaultChecked />} label="Ya lo he leído" value="leido" onChange={handleLeidoChange} checked={leido} />
+            <FormControlLabel className='checkBoxAdd d-flex' control={<Checkbox defaultChecked icon={<FavoriteBorder /> } checkedIcon={<Favorite />} /> } label="Añadir a mis favoritos" value="favorito" onChange={handleFavoritoChange} checked={esFavorito} />
+
+            { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
+            <br />
+
+            <Button type='submit' variant="contained"> Añadir </Button>
+            
+        </form> */}
                 
     </div>
   )

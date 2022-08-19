@@ -1,3 +1,4 @@
+import { Alert } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getAllLocalizacionesService } from '../services/localizacion.services';
@@ -36,15 +37,40 @@ function Localizaciones() {
   }
 
   return (
-    <div className='divLocalizaciones'>
+    <div className='divLocalizaciones d-flex'>
+    
+      <br />
+    
+      {
+        errorMessage !== null && listaLocalizaciones !== null ? 
+        <Alert className='alert alert-danger alertError' severity="error"> { errorMessage } </Alert>
+        
+         : 
+         listaLocalizaciones.map( (eachLocalizacion) => {
+              return (
+                <div>
+                  <h5> Puede editar la localización deseada pulsando sobre ella. </h5>
+                  <br />
+
+                  <div className='cadaLocalizacion'>
+                    <Link to={`/localizaciones/${eachLocalizacion._id}/details`}> <h3> ➤ {eachLocalizacion.lugar} </h3> </Link>
+                    <hr />
+                  </div>
+                </div>
+
+              )
+            })
+
+      }
+      <p> Haz click <Link to={"/localizaciones/add-localizacion"}>aquí</Link> si quiere añadir una nueva localización. </p>
       <br />
       <br />
-      <h5> Puede editar la localización deseada pulsando sobre ella. </h5>
+      {/* <h5> Puede editar la localización deseada pulsando sobre ella. </h5>
       <br />
 
-        { errorMessage !== null && <p> {errorMessage} </p> }
+        {/* { errorMessage !== null && <p> {errorMessage} </p> } */}
 
-        {
+        {/* {
           listaLocalizaciones !== null && (
             listaLocalizaciones.map( (eachLocalizacion) => {
               return (
@@ -58,8 +84,7 @@ function Localizaciones() {
           )
         }
 
-        <br /><br />
-        <p> Haz click <Link to={"/localizaciones/add-localizacion"}>aquí</Link> si quiere añadir una nueva localización. </p>
+        <p> Haz click <Link to={"/localizaciones/add-localizacion"}>aquí</Link> si quiere añadir una nueva localización. </p> */}
 
     </div>
   )

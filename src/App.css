@@ -188,8 +188,8 @@ div.introduccionHome {
 /******************************/
 /* * ESTILOS PAGINA LIBROS * */
 /****************************/
-.alertListaLibros {
-  width: 40vw;
+.alertError {
+  width: 50vw;
 }
 
 .listaLibros {
@@ -304,6 +304,8 @@ div.introduccionHome {
 .divFormAddLibro {
   max-width: 100vw;
   min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
   /* background-image: url("https://res.cloudinary.com/dmrjy3ynh/image/upload/f_auto,q_auto:best/v1660838927/busca-libros/backgrounds/vintage-paper-background_atzwye.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -455,8 +457,11 @@ div.introduccionHome {
 /************************************/
 /* * ESTILOS LISTA LOCALIZACION * */
 /**********************************/
+
 .divLocalizaciones {
-  max-width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  max-width: 99vw;
   min-height: 100vh;
   background-image: url("https://res.cloudinary.com/dmrjy3ynh/image/upload/f_auto,q_auto:best/v1660838927/busca-libros/backgrounds/vintage-paper-background_atzwye.jpg");
   background-size: cover;
