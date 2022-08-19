@@ -488,6 +488,8 @@ hr {
 .divDetalleLocalizacion {
   max-width: 100vw;
   min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
   background-image: url("https://res.cloudinary.com/dmrjy3ynh/image/upload/f_auto,q_auto:best/v1660839530/busca-libros/backgrounds/wallpaper_ygnxeo.jpg");
   background-size: cover;
   background-repeat: no-repeat;

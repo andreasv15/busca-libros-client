@@ -41,7 +41,14 @@ function Perfil() {
 
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setPassword("");
+    setNewPassword("");
+    setConfirmPassword("");
+    setErrorMessage(null);
+
+  }
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleClickShowNewPassword = () => setShowNewPassword(!showNewPassword);
   const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
@@ -102,7 +109,7 @@ function Perfil() {
 
       //const response = await verifyService();
       const response = await perfilService();
-      console.log("perfil ", response);
+      //console.log("perfil ", response);
       //console.log(response)
       // console.log(response);
       // console.log("verify service: ", response);

@@ -12,11 +12,15 @@ function DetalleLocalizacion() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [ detalleLocalizacion, setDetalleLocalizacion ] = useState(null);
-    const [ errorMessage, setErrorMessage] = useState(null);
-    const [open, setOpen] = useState(false);
+    const [ librosLocalizacion, setLibrosLocalizacion ] = useState(null);
+    const [ errorMessage, setErrorMessage ] = useState(null);
+    const [ open, setOpen ] = useState(false);
 
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        setOpen(false); 
+        setErrorMessage(null)
+    }
     const style = {
         position: 'absolute',
         top: '50%',
@@ -39,9 +43,10 @@ function DetalleLocalizacion() {
 
         try {
             const response = await getDetalleLocalizacionService(id);
-            //console.log(response);
+            //console.log("hola ", response);
             if (response.data.errorMessage === undefined) {
-                setDetalleLocalizacion(response.data);
+                setDetalleLocalizacion(response.data.localizacion);
+                setLibrosLocalizacion(response.data.libros);
             } else {
                 setErrorMessage(response.data.errorMessage);
             }
@@ -76,10 +81,11 @@ function DetalleLocalizacion() {
 
 
   return (
-    <div className='divDetalleLocalizacion'>
+    <div className='divDetalleLocalizacion d-flex'>
         <br />
 
         <h4> {detalleLocalizacion.lugar} </h4>
+
         <br />
 
         <div className='botonesLocalizacion'>
@@ -106,14 +112,45 @@ function DetalleLocalizacion() {
                 <Button type='button' onClick={handleDelete} variant="contained"> Sí </Button>
                 <Button type='button' onClick={handleClose} variant="contained"> No </Button>
             </div>
+            <br />
+            { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
             </Box>
 
         </Modal>
 
         <br />
-        
-        { errorMessage !== null && <Alert className='alert alert-danger' severity="error"> { errorMessage } </Alert> }
-        
+        <br />
+
+            {
+                librosLocalizacion.length === 0 ?
+                    <Alert className='alert alert-info alertError' severity="info"> No hay libros en esta localización. Agrega <Link to={`/libros/add-libro/`}>uno</Link>. </Alert>
+                 :
+                <div>
+                    <h4> Libros que están en {detalleLocalizacion.lugar} </h4>
+                    <div className='divLibrosLeidos d-flex flex-wrap'>
+                        {
+                            librosLocalizacion !== null && (
+                                librosLocalizacion.map((eachLibro) => {
+                            return (
+                                <div className='cadaLibroPerfil card'>
+                                <Link to={`/libros/${eachLibro._id}/details`}>
+                                <img src={eachLibro.imagen} class="card-img-top imgLibroPerfil" alt="..."  />
+                                </Link>
+                                <div className='card-body'>
+                                    <Link to={`/libros/${eachLibro._id}/details`}>
+                                    <h5> {eachLibro.titulo} </h5> 
+                                    <p className="card-subtitle mb-2 text-muted">{eachLibro.autor}</p>
+                                    </Link>
+                                </div>
+                                </div>
+                            )
+                            })
+                        )
+                        }
+                    </div>
+                </div>
+            }
+
         <br />
 
     </div>
