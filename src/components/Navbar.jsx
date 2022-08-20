@@ -25,7 +25,7 @@ function Navbar() {
     <div>
     {
       (isLoggedIn === true) && (
-        <nav className="navbar navbar-expand-lg bg-light" >
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,10 +35,10 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 barraNav">
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link" aria-current="page" to="/libros"> <IoLibrarySharp size={30} /> </NavLink>
+                  <NavLink className="nav-link"  to="/libros"> <IoLibrarySharp size={30} /> </NavLink>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link" to="/libros/add-libro"><FaBookMedical size={30} /></NavLink>
+                  <NavLink className="nav-link"  to="/libros/add-libro"><FaBookMedical size={30} /></NavLink>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                   <NavLink className="nav-link" to="/localizaciones"><ImLocation size={30} /></NavLink>
