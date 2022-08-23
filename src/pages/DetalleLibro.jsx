@@ -51,8 +51,8 @@ function DetalleLibro() {
                 // setFavorito(response.data.esFavorito);
 
                 const response2 = await getDetalleLocalizacionService(response.data.localizacion);
-                //console.log("local", response2.data.lugar);
-                setNomLugar(response2.data.lugar);
+                //console.log("local", response2.data.localizacion.lugar);
+                setNomLugar(response2.data.localizacion.lugar);
             } else {
                 setErrorMessage(response.data.errorMessage);
             }
