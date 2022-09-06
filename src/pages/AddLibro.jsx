@@ -103,21 +103,20 @@ function AddLibro() {
 
   return (
     <div className='divFormAddLibro d-flex'>
-        <br />
-        <br />
 
     {
         listaLocalizaciones === null ?
             <Alert className='alert alert-danger alertError' severity="error"> Para poder agregar libros tienes que tener mínimo una localización. Agrega <Link to={"/localizaciones/add-localizacion"}>una</Link>. </Alert>
         :
         <form onSubmit={handleAddLibro} className="formAddLibro">
+        <h1> Añade un libro</h1>
             <br />
             <br />
             <Button
             variant="contained"
             component="label"
             >
-            Imagen del libro
+            Subir imagen del libro
             <input
                 type="file"
                 hidden

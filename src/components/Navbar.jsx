@@ -35,22 +35,22 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 barraNav">
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link"  to="/libros"> <IoLibrarySharp size={30} /> </NavLink>
+                  <Link className="nav-link"  to="/libros"> <IoLibrarySharp size={30} /> </Link>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link"  to="/libros/add-libro"><FaBookMedical size={30} /></NavLink>
+                  <Link className="nav-link"  to="/libros/add-libro"><FaBookMedical size={30} /></Link>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link" to="/localizaciones"><ImLocation size={30} /></NavLink>
+                  <Link className="nav-link" to="/localizaciones"><ImLocation size={30} /></Link>
                 </li>
                 <li className="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                  <NavLink className="nav-link" to="/localizaciones/add-localizacion"><MdAddLocationAlt size={30} /></NavLink>
+                  <Link className="nav-link" to="/localizaciones/add-localizacion"><MdAddLocationAlt size={30} /></Link>
                 </li>
 
                 <li className="nav-item dropdown" >
-                  <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <FaUserCog size={30} /> 
-                  </NavLink>
+                  </Link>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" >
                     <li>
                       <NavLink className="dropdown-item" to="/perfil">Mi perfil</NavLink>

@@ -232,9 +232,35 @@ div.introduccionHome {
   border: 1px black solid;
   border-radius: 1em;
   margin: 1% auto;
-  transition: transform .2s; /*Animation*/
+  transition: transform .2s; /* Animation */
 
 }
+
+/* .cadaLibroTitulo {
+  display: block;
+  font-size:100px;
+}
+
+.infoLibro, .cadaLibroImg {
+  display: none;
+
+}
+
+.cadaLibro:hover .infoLibro {
+  display: block;
+  
+}
+.cadaLibro:hover .cadaLibroImg {
+
+  display: block;
+  
+}
+.cadaLibro:hover .cadaLibroTitulo {
+  display: none;
+} */
+
+
+
 
 .cadaLibro:hover {
   transform: scale(1.02); 
@@ -248,6 +274,7 @@ div.introduccionHome {
   margin: 50px 10px 20px 16px;
   padding: 20px 0px 0px 10px;
 }
+
 
 .card-text {
   margin: 0px 10px 0px 0px;
@@ -272,8 +299,8 @@ div.introduccionHome {
 /* .cadaLibro:hover {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.9) inset;
 }
-
-.cadaLibro:hover * {
+ */
+/* .cadaLibro:hover * {
   opacity: 1;
   transform: scale(1);
 } */

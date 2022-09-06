@@ -48,7 +48,7 @@ function AddLocalizacion() {
       <br />
         <div>
 
-            <TextField onChange={handleChangeLugar} value={lugar} className='textfield' id="standard-basic" label="Título" variant="standard" />
+            <TextField onChange={handleChangeLugar} value={lugar} className='textfield' id="standard-basic" label="Localización" variant="standard" />
 
             <br />
             <br />

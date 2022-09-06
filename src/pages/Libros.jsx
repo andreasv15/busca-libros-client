@@ -67,13 +67,13 @@ function Libros() {
               return (
                 <div key={eachLibro._id} className='cadaLibro d-flex'>
                   
-                  <img src={eachLibro.imagen} alt="img" className='card-img-top imgLibro' />
+                  <img src={eachLibro.imagen} alt="img" className='card-img-top imgLibro cadaLibroImg' />
 
                   <div className='infoLibro'>
-                    <h3 className='card-title'> {eachLibro.titulo} </h3> 
-                    <p className='card-subtitle mb-2 text-muted'> {eachLibro.autor} </p>
-                    <p className="card-text"> {eachLibro.sinopsis} </p>
-                    <Link to={`/libros/${eachLibro._id}/details`}> <p> Ver más </p> </Link> 
+                    <h3 className='card-title cadaLibroTitulo'> {eachLibro.titulo} </h3> 
+                    <p className='card-subtitle mb-2 text-muted cadaLibroAutor'> {eachLibro.autor} </p>
+                    <p className="card-text cadaLibroSinopsis"> {eachLibro.sinopsis} </p>
+                    <Link className='cadaLibroLink' to={`/libros/${eachLibro._id}/details`}> <p> Ver más </p> </Link> 
                   </div>
 
                 </div>
